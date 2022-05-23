@@ -3,7 +3,7 @@
 
 void run()
 {
-    puts("execute commands");
+    puts("execute commands!");
     /**
      * @brief Read:
      * Read the command from standard input.

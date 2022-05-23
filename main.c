@@ -1,3 +1,9 @@
+/**
+ * @file         main.c
+ * @author       Edward Manda
+ * @date         May 2022
+ * @brief        Shell
+ **/
 
 #include <stdlib.h>
 #include <stdio.h>
