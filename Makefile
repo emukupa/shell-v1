@@ -1,11 +1,12 @@
 CC=gcc 
 CFLAGS= -Wall -Wextra -I .
 DEPS = *.h
+OBJ = main.o init.o run.o clean.o run-file.o
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 	
-main: main.o init.o run.o clean.o run-file.o
-	  $(CC) -o main main.o init.o run.o clean.o run-file.o
+main: $(OBJ)
+	  $(CC) -o $@ $^ $(CFLAGS)
 clean:
 	rm main *.o

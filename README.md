@@ -1,5 +1,6 @@
 # intro
 
+- source is https://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/
 - Create init, run clean and main functions in there respective files
 - Compile the programs. `gcc -Wall -Wextra -o main main.c init.c run.c clean.c run-file.c -I .`
 - Create a Makefile
@@ -43,6 +44,7 @@ clean:
 ```
 
 - Update the DEPS with `*.h`
+- makefile4
 
 ```Makefile
 CC=gcc
@@ -54,6 +56,24 @@ DEPS = *.h
 
 main: main.o init.o run.o clean.o run-file.o
 	  $(CC) -o main main.o init.o run.o clean.o run-file.o
+clean:
+	rm main *.o
+```
+
+- simplify further
+- makefile5
+
+```Makefile
+CC=gcc
+CFLAGS= -Wall -Wextra -I .
+DEPS = *.h
+OBJ = main.o init.o run.o clean.o run-file.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+main: $(OBJ)
+	  $(CC) -o $@ $^ $(CFLAGS)
 clean:
 	rm main *.o
 ```
