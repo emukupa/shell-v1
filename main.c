@@ -1,29 +1,39 @@
 
 #include <stdlib.h>
+#include <stdio.h>
 #include "init.h"
 #include "run.h"
 #include "clean.h"
+#include "run-file.h"
 
 int main(int argc, char const *argv[])
 {
-    /**
-     * @brief Initialize:
-     * read and execute the shell configuration files
-     */
+    if (argc < 2)
+    {
 
-    init();
+        /**
+         * @brief Initialize:
+         * read and execute the shell configuration files
+         */
 
-    /**
-     * @brief Interpret:
-     * the shell reads commands from stdin (which could be interactive, or a file) and executes them.
-     */
-    run();
+        init();
 
-    /**
-     * @brief Terminate:
-     * after the commands are executed, the shell executes any shutdown commands, frees up any memory, and terminates.
-     */
-    clean();
+        /**
+         * @brief Interpret:
+         * the shell reads commands from stdin (which could be interactive, or a file) and executes them.
+         */
+        run();
+
+        /**
+         * @brief Terminate:
+         * after the commands are executed, the shell executes any shutdown commands, frees up any memory, and terminates.
+         */
+        clean();
+    }
+    else
+    {
+        run_file(argv[1]);
+    }
 
     return EXIT_SUCCESS;
 }

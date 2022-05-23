@@ -3,5 +3,5 @@
 
 void init()
 {
-    puts("initialize configurations");
+    // TODO configurations can be made here
 }

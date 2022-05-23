@@ -3,5 +3,5 @@
 
 void clean()
 {
-    puts("terminate shell");
+    // TODO clean up the program
 }
