@@ -13,12 +13,45 @@ clean:
 	rm main
 ```
 
-- modifile to use `CC` and `CFLAGS`
+- modify makefile to use `CC` and `CFLAGS`
 - makefile2
 
 ```Makefile
 CC=gcc
 CFLAGS= -Wall -Wextra -I .
+main: main.o init.o run.o clean.o run-file.o
+	  $(CC) -o main main.o init.o run.o clean.o run-file.o
+clean:
+	rm main *.o
+```
+
+- modify makefile to re-compile when .h files are changed
+- makefile3
+
+```Makefile
+CC=gcc
+CFLAGS= -Wall -Wextra -I .
+DEPS = clean.h init.h run-file.h run.h
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+main: main.o init.o run.o clean.o run-file.o
+	  $(CC) -o main main.o init.o run.o clean.o run-file.o
+clean:
+	rm main *.o
+```
+
+- Update the DEPS with `*.h`
+
+```Makefile
+CC=gcc
+CFLAGS= -Wall -Wextra -I .
+DEPS = *.h
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
 main: main.o init.o run.o clean.o run-file.o
 	  $(CC) -o main main.o init.o run.o clean.o run-file.o
 clean:
