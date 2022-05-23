@@ -1,1 +1,4 @@
-# shell-v1
+# intro
+
+Compile the program
+gcc -o main main.c
