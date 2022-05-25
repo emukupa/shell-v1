@@ -150,11 +150,17 @@ int shell_cd(char **args)
 
 int shell_exit(char **args)
 {
-    return 0;
+    printf("The argument size is %ld\n", sizeof args);
+    if (sizeof args == 0)
+    {
+        return 0;
+    }
+    return 1;
 }
 
 int shell_help(char **args)
 {
+    printf("The argument size is %ld\n", sizeof args);
     printf("Edward Manda's Shell\n");
     printf("Type program names and arguments, and hit enter.\n");
     printf("The following are built in:\n");
@@ -170,6 +176,7 @@ int shell_help(char **args)
 
 int shell_play(char **args)
 {
+    printf("The argument size is %ld\n", sizeof args);
     puts("This is just for fun.....");
     return 1;
 }

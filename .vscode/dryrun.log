@@ -1,0 +1,10 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/edward-manda/Desktop/ed/cpp_projects/shell-v1'
+gcc  -c -o main.o main.c -Wall -Wextra -I .
+gcc  -c -o init.o init.c -Wall -Wextra -I .
+gcc  -c -o run.o run.c -Wall -Wextra -I .
+gcc  -c -o clean.o clean.c -Wall -Wextra -I .
+gcc  -c -o run-file.o run-file.c -Wall -Wextra -I .
+gcc  -o main main.o init.o run.o clean.o run-file.o -Wall -Wextra -I .
+make: Leaving directory `/Users/edward-manda/Desktop/ed/cpp_projects/shell-v1'
+ 
